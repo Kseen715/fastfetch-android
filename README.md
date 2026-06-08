@@ -2,6 +2,10 @@
 
 Cross-compiles [fastfetch](https://github.com/fastfetch-cli/fastfetch) for Android using Docker and Android NDK r27c.
 
+<img src="./image/README/Honor_6X.png" alt="fastfetch-android" width="600"/>
+
+<img src="./image/README/ASUS_Fonepad_8.png" alt="fastfetch-android" width="600"/>
+
 ## Requirements
 
 - Docker + Docker Compose
