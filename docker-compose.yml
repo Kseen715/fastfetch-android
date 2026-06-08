@@ -1,0 +1,17 @@
+services:
+  fastfetch-android-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FASTFETCH_REF: dev
+    image: fastfetch-android-builder:latest
+    volumes:
+      - ./out:/out
+      - ./build-fastfetch-android.sh:/work/build-fastfetch-android.sh:ro
+      - ./src:/work/src:ro
+    environment:
+      - JOBS=
+      - OUT_DIR=/out
+      - BUILD_TARGETS=
+    command: ["/bin/bash", "/work/build-fastfetch-android.sh"]
