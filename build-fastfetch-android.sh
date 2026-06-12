@@ -154,10 +154,9 @@ build_one() {
 
     cp -f "${bdir}/fastfetch" "${OUT_DIR}/fastfetch-${name}"
     "${STRIP}" "${OUT_DIR}/fastfetch-${name}" || true
-    # PIE binaries: clear DF_1_PIE so old (<=7) linkers don't warn. Skip for non-PIE.
-    if [[ "${pie}" != "off" ]]; then
-        python3 "${SCRIPT_DIR}/src/patch-dtflags.py" "${OUT_DIR}/fastfetch-${name}"
-    fi
+    # Strip rpath / symbol-versioning DT entries and clear DF_1_PIE so old
+    # Bionic linkers (Android 5.x "unused DT entry", <=7 PIE flag) stay quiet.
+    python3 "${SCRIPT_DIR}/src/patch-elf-android.py" "${OUT_DIR}/fastfetch-${name}"
 
     if command -v file >/dev/null 2>&1; then
         echo "==> Done: $(file "${OUT_DIR}/fastfetch-${name}")"
