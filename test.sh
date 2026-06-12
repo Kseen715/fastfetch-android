@@ -19,5 +19,7 @@ run_on_device() {
     adb -s "${serial}" shell "${REMOTE} --pipe"
 }
 
-run_on_device "7BQDU17110010631" "${OUT_DIR}/fastfetch-aarch64" "Honor 6X (arm64)"
-run_on_device "EAOKBC381276"     "${OUT_DIR}/fastfetch-x86"     "ASUS Fonepad 8 (x86)"
+run_on_device "7BQDU17110010631" "${OUT_DIR}/fastfetch-armv8"       "Honor 6X (arm64-v8a, A7.0)"
+run_on_device "EAOKBC381276"     "${OUT_DIR}/fastfetch-x86"         "ASUS Fonepad 8 (x86, A5.0)"
+run_on_device "DU2JLA141F024744" "${OUT_DIR}/fastfetch-armv7"       "Huawei Honor 3 (armeabi-v7a, A4.2.2)"
+run_on_device "F83DFFFFA4EB"     "${OUT_DIR}/fastfetch-armv7-nopie" "Huawei U8815 (armeabi-v7a noPIE, A4.0.3)"

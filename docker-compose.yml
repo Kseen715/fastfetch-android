@@ -13,5 +13,8 @@ services:
     environment:
       - JOBS=
       - OUT_DIR=/out
+      # all | modern | legacy  (which architecture tier(s) to build)
+      - TARGET_SET=all
+      # optional comma list to restrict, e.g. armv7,armv8
       - BUILD_TARGETS=
     command: ["/bin/bash", "/work/build-fastfetch-android.sh"]
